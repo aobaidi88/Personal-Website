@@ -1,0 +1,141 @@
+﻿@page "/resume"
+@using PersonalWebsite.Shared
+@inject HttpClient Http
+@inject IEducationService _educationService
+@inject IExperinceService _experinceService
+@inject ISkillService _skillService
+
+
+<h1>Resume Builder</h1>
+@if (educations == null)
+{
+    <div class="loader"></div>
+}
+else
+{
+    //Education section
+    <h1>Education</h1>
+    <a href="add">Add New Education</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Degree</th>
+                <th>School</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+
+        @foreach (var edu in educations)
+        {
+            <tr>
+                <td>@edu.EducationID</td>
+                <td>@edu.Degree</td>
+                <td>@edu.School</td>
+                <td>@edu.Start</td>
+                <td>@edu.End</td>
+                <td><a href='/edit/@edu.EducationID'>Edit</a></td>
+                <td><a href='/delete/@edu.EducationID'>Delete</a></td>
+            </tr>
+        }
+    </table>
+
+    //Experince section
+    <h1>Experince</h1>
+    <a href="addexp">Add New Experince</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+
+        @foreach (var exp in experinces)
+        {
+            <tr>
+                <td>@exp.ExperincenceID</td>
+                <td>@exp.Title</td>
+                <td>@exp.Description</td>
+                <td>@exp.Start</td>
+                <td>@exp.End</td>
+                <td><a href='/editexp/@exp.ExperincenceID'>Edit</a></td>
+                <td><a href='/deleteexp/@exp.ExperincenceID'>Delete</a></td>
+            </tr>
+        }
+    </table>
+    //Skill section
+    <h1>Skill</h1>
+    <a href="addskill">Add New Skill</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Degree</th>
+                <th>School</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+
+        @foreach (var skill in skills)
+        {
+            <tr>
+                <td>@skill.SkillID</td>
+                <td>@skill.Title</td>
+                <td>@skill.Description</td>
+                <td><a href='/editskill/@skill.SkillID'>Edit</a></td>
+                <td><a href='/deleteskill/@skill.SkillID'>Delete</a></td>
+            </tr>
+        }
+    </table>
+}
+<footer id="copyR"> &copy; Obaidi Site 2020</footer>
+<style>
+    header {
+        font-family: "Candara";
+        font-size: 22px;
+    }
+
+    body {
+        font-family: "Candara";
+        background-color: #171717;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        font-family: "Candara";
+    }
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #00ff00; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+</style>
+
+
+@code {
+
+    private List<Education> educations;
+    private List<Experince> experinces;
+    private List<Skill> skills;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        educations = await _educationService.GetEducations();
+
+        experinces = await _experinceService.GetExperinces();
+
+        skills = await _skillService.GetSkills();
+    }
+}

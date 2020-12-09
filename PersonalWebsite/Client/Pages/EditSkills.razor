@@ -1,0 +1,54 @@
+﻿@page "/editskill/{skillID}"
+@using PersonalWebsite.Shared
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<h3>Edit Skill</h3>
+<hr />
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Degree" class="control-label">Title</label>
+                <input for="Degree" class="form-control" @bind="@skill.Title" />
+            </div>
+            <div class="form-group">
+                <label for="School" class="control-label">Description</label>
+                <input for="School" class="form-control" @bind="@skill.Description" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+               <input type="button" class="btn btn-primary" @onclick="@Updateskill" value="Save" />
+                <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@code {
+    [Parameter]
+    public string skillID { get; set; }
+
+    private Skill skill = new Skill();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        skill = await Http.GetFromJsonAsync<Skill>("api/Skills/" + skillID);
+    }
+
+    protected async Task Updateskill()
+    {
+        await Http.PutAsJsonAsync($"api/Skills/{skill.SkillID}", skill);
+        NavigationManager.NavigateTo("resume");
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("resume");
+    }
+}

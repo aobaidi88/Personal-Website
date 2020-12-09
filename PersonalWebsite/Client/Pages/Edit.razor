@@ -1,0 +1,62 @@
+﻿@page "/edit/{eduID}"
+@using PersonalWebsite.Shared
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<h3>Edit Education</h3>
+<hr />
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Degree" class="control-label">Degree</label>
+                <input for="Degree" class="form-control" @bind="@edu.Degree" />
+            </div>
+            <div class="form-group">
+                <label for="School" class="control-label">School</label>
+                <input for="School" class="form-control" @bind="@edu.School" />
+            </div>
+            <div class="form-group">
+                <label for="Start" class="control-label">Start Date</label>
+                <input  type="date" for="Start" class="form-control" @bind="@edu.Start" />
+            </div>
+            <div class="form-group">
+                <label for="End" class="control-label">End Date</label>
+                <input type="date" for="End" class="form-control" @bind="@edu.End" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+               <input type="button" class="btn btn-primary" @onclick="@UpdateEdu" value="Save" />
+                <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@code {
+    [Parameter]
+    public string eduID { get; set; }
+
+    Education edu = new Education();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        edu = await Http.GetFromJsonAsync<Education>("api/Educations/" + eduID);
+    }
+
+    protected async Task UpdateEdu()
+    {
+        await Http.PutAsJsonAsync($"api/Educations/{edu.EducationID}", edu);
+        NavigationManager.NavigateTo("resume");
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("resume");
+    }
+}

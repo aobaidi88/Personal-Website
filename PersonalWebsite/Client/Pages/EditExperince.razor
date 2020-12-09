@@ -1,0 +1,62 @@
+﻿@page "/editexp/{expID}"
+@using PersonalWebsite.Shared
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<h3>Edit Experince</h3>
+<hr />
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Degree" class="control-label">Title</label>
+                <input for="Degree" class="form-control" @bind="@exp.Title" />
+            </div>
+            <div class="form-group">
+                <label for="School" class="control-label">Description</label>
+                <input for="School" class="form-control" @bind="@exp.Description" />
+            </div>
+            <div class="form-group">
+                <label for="Start" class="control-label">Start Date</label>
+                <input  type="date" for="Start" class="form-control" @bind="@exp.Start" />
+            </div>
+            <div class="form-group">
+                <label for="End" class="control-label">End Date</label>
+                <input type="date" for="End" class="form-control" @bind="@exp.End" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+               <input type="button" class="btn btn-primary" @onclick="@UpdateExp" value="Save" />
+                <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@code {
+    [Parameter]
+    public string expID { get; set; }
+
+    private Experince exp = new Experince();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        exp = await Http.GetFromJsonAsync<Experince>("api/Experinces/" + expID);
+    }
+
+    protected async Task UpdateExp()
+    {
+        await Http.PutAsJsonAsync($"api/Experinces/{exp.ExperincenceID}", exp);
+        NavigationManager.NavigateTo("resume");
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("resume");
+    }
+}

@@ -1,0 +1,53 @@
+﻿@page "/add"
+@using PersonalWebsite.Shared
+@inject NavigationManager NavigationManager
+@inject IEducationService _educationService
+
+    <h2>Add your Educations</h2>
+<hr />
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="Degree" class="control-label">Degree</label>
+                <input for="Degree" class="form-control" @bind="@edu.Degree" />
+            </div>
+            <div class="form-group">
+                <label for="School" class="control-label">School</label>
+                <input for="School" class="form-control" @bind="@edu.School" />
+            </div>
+            <div class="form-group">
+                <label for="Start" class="control-label">Start Date</label>
+                <input type="date" for="Start" class="form-control" @bind="@edu.Start" />
+            </div>
+            <div class="form-group">
+                <label for="Start" class="control-label">Start date</label>
+                <input type="date" for="Start" class="form-control" @bind="@edu.End" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@Create" value="Save" />
+                <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+
+    private Education edu = new Education();
+
+    private async Task Create()
+    {
+        await _educationService.AddEdu(edu);
+        NavigationManager.NavigateTo("resume");
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("resume");
+    }
+}     

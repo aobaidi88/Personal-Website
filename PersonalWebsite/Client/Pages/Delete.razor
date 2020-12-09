@@ -1,0 +1,57 @@
+﻿@page "/delete/{eduID}"
+@using PersonalWebsite.Shared
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h2>Delete</h2>
+<p>Are you sure you want to delete this Education with Id :<b> @eduID</b></p>
+<br />
+<div class="col-md-4">
+    <table class="table">
+        <tr>
+            <td>Degree</td>
+            <td>@edu.Degree</td>
+        </tr>
+        <tr>
+            <td>School</td>
+            <td>@edu.School</td>
+        </tr>
+        <tr>
+            <td>Start Date</td>
+            <td>@edu.Start</td>
+        </tr>
+        <tr>
+            <td>End Date</td>
+            <td>@edu.End</td>
+        </tr>
+    </table>
+    <div class="form-group">
+        <input type="button" value="Delete" @onclick="@DeleteEdu" class="btn btn-primary" />
+        <input type="button" value="Cancel" @onclick="@Cancel" class="btn" />
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string eduID { get; set; }
+
+    Education edu = new Education();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        edu = await Http.GetFromJsonAsync<Education>("api/Educations/" + eduID);
+    }
+
+    protected async Task DeleteEdu()
+    {
+        await Http.DeleteAsync("/api/Educations/" + eduID);
+        NavigationManager.NavigateTo("resume");
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("resume");
+    }
+}     

@@ -1,0 +1,144 @@
+﻿@page "/contact"
+@using PersonalWebsite.Shared
+@inject IEmailService emailService
+
+<h3 class="oi oi-envelope-open" >Contact Me</h3>
+<div class="container">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Enter Your name.." @bind="contactInfo.FirstName">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Enter Your last name.." @bind="contactInfo.lastName">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Enter Your Email.." @bind="contactInfo.Email">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+        <option value="usa">USA</option>
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+    </select>
+    <div>
+        @foreach (var request in RequestType)
+        {
+            <input type="radio" name="RequestType" value="@request" @onchange="OnChangeRequest" />
+            <label for="@request">@request</label>
+        }
+    </div>
+    <div>
+        <label>
+            Web App:
+            <input type="checkbox" @bind="contactInfo.IsWebApp" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Phone App:
+            <input type="checkbox"@bind="contactInfo.IsPhoneApp" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Windows App:
+            <input type="checkbox"@bind="contactInfo.IsWindows" />
+
+        </label>
+    </div>
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" @bind="contactInfo.Comments"></textarea>
+
+    <button type="submit" value="Submit"
+            @onclick="@(() => Submit())">
+        Submit
+    </button>
+    <button type="submit" value="Submit"
+            @onclick="@(() => reset())">
+        Reset
+    </button>
+</div>
+
+<footer id="copyR"> &copy; Obaidi Site 2020</footer>
+
+<style>
+    input[type=radio] {
+        border-radius: 4px;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Some padding */
+        border: 1px solid #ccc; /* Gray border */
+        border-radius: 4px; /* Rounded borders */
+        box-sizing: border-box; /* Make sure that padding and width stays in place */
+        margin-top: 6px; /* Add a top margin */
+        margin-bottom: 16px; /* Bottom margin */
+        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+
+    .container {
+        border-radius: 5px;
+        background-color: #CCCCCC;
+        padding: 20px;
+    }
+
+    header {
+        font-family: "Candara";
+        font-size: 22px;
+        text-align: left;
+        background-color: #CDAA3A;
+    }
+
+    body {
+        background-color: #ACACAC;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+</style>
+
+@code {
+
+    private ContactInfo contactInfo = new ContactInfo();
+
+    private string[] RequestType { get; set; } = new[] { "Quote", "General Message " };
+
+    private void OnChangeRequest(ChangeEventArgs args)
+    {
+        contactInfo.TypeOfRequest = args.Value.ToString();
+    }
+
+    private async Task Submit()
+    {
+        await emailService.SendEmail(contactInfo);
+
+        await emailService.AddEmail(contactInfo);
+    }
+
+    private void reset()
+    {
+        contactInfo.Comments = default;
+        contactInfo.FirstName = default;
+        contactInfo.lastName = default;
+        RequestType = default;
+    }
+}
