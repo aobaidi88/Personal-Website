@@ -1,0 +1,8 @@
+D:\C#\C#_.NET II\Projects\ObaidiP6\PersonalWebsite\PersonalWebsite\Shared\bin\Debug\netstandard2.1\PersonalWebsite.Shared.deps.json
+D:\C#\C#_.NET II\Projects\ObaidiP6\PersonalWebsite\PersonalWebsite\Shared\bin\Debug\netstandard2.1\PersonalWebsite.Shared.dll
+D:\C#\C#_.NET II\Projects\ObaidiP6\PersonalWebsite\PersonalWebsite\Shared\bin\Debug\netstandard2.1\PersonalWebsite.Shared.pdb
+D:\C#\C#_.NET II\Projects\ObaidiP6\PersonalWebsite\PersonalWebsite\Shared\obj\Debug\netstandard2.1\PersonalWebsite.Shared.AssemblyInfoInputs.cache
+D:\C#\C#_.NET II\Projects\ObaidiP6\PersonalWebsite\PersonalWebsite\Shared\obj\Debug\netstandard2.1\PersonalWebsite.Shared.AssemblyInfo.cs
+D:\C#\C#_.NET II\Projects\ObaidiP6\PersonalWebsite\PersonalWebsite\Shared\obj\Debug\netstandard2.1\PersonalWebsite.Shared.csproj.CoreCompileInputs.cache
+D:\C#\C#_.NET II\Projects\ObaidiP6\PersonalWebsite\PersonalWebsite\Shared\obj\Debug\netstandard2.1\PersonalWebsite.Shared.dll
+D:\C#\C#_.NET II\Projects\ObaidiP6\PersonalWebsite\PersonalWebsite\Shared\obj\Debug\netstandard2.1\PersonalWebsite.Shared.pdb

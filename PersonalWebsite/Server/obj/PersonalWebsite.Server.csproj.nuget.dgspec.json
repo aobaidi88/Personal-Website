@@ -1,0 +1,274 @@
+{
+  "format": 1,
+  "restore": {
+    "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Server\\PersonalWebsite.Server.csproj": {}
+  },
+  "projects": {
+    "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Client\\PersonalWebsite.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Client\\PersonalWebsite.Client.csproj",
+        "projectName": "PersonalWebsite.Client",
+        "projectPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Client\\PersonalWebsite.Client.csproj",
+        "packagesPath": "C:\\Users\\aobaidi\\.nuget\\packages\\",
+        "outputPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\aobaidi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Shared\\PersonalWebsite.Shared.csproj": {
+                "projectPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Shared\\PersonalWebsite.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Build": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Server\\PersonalWebsite.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Server\\PersonalWebsite.Server.csproj",
+        "projectName": "PersonalWebsite.Server",
+        "projectPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Server\\PersonalWebsite.Server.csproj",
+        "packagesPath": "C:\\Users\\aobaidi\\.nuget\\packages\\",
+        "outputPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\aobaidi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Client\\PersonalWebsite.Client.csproj": {
+                "projectPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Client\\PersonalWebsite.Client.csproj"
+              },
+              "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Shared\\PersonalWebsite.Shared.csproj": {
+                "projectPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Shared\\PersonalWebsite.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Shared\\PersonalWebsite.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Shared\\PersonalWebsite.Shared.csproj",
+        "projectName": "PersonalWebsite.Shared",
+        "projectPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Shared\\PersonalWebsite.Shared.csproj",
+        "packagesPath": "C:\\Users\\aobaidi\\.nuget\\packages\\",
+        "outputPath": "I:\\Git\\interview\\interview\\ObaidiP6\\PersonalWebsite\\PersonalWebsite\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\aobaidi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
