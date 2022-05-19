@@ -22,5 +22,6 @@ namespace PersonalWebsite.Server
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }
